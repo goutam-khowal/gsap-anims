@@ -1,11 +1,12 @@
 import CoolLandingPage from "@/components/CoolLandingPage";
+import AgencyWebsite from "@/components/Digital-Agency-Website/MainPage";
 import TextAnimBanner from "@/components/TextAnimBanner";
 
 const Home = () => {
   return (
     <main className="h-full w-full overflow-x-hidden  bg-white">
       {/* <TextAnimBanner /> */}
-      <CoolLandingPage />
+      <AgencyWebsite />
     </main>
   );
 };
