@@ -33,7 +33,6 @@ function Lp() {
     <>
       <nav className="w-screen flex  items-center justify-between px-5 py-5">
         <h1 id="h1Lp" className="font-bold text-xl">
-          {/* Smriti🪷 */}
           Hello
         </h1>
         <ul className="flex">
@@ -47,7 +46,6 @@ function Lp() {
         className="absolute text-6xl whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2"
       >
         Happy Birthday
-        {/* Smriti🪷 */}
       </div>
     </>
   );

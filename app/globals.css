@@ -5,6 +5,11 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: china;
+  src: url(./NeueMachina-Regular.otf);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -24,4 +29,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  cursor: none !important;
+}
+
+#h1TextAnimsPage span {
+  display: inline-block;
+}
+
+.marquee {
+  transform: translateX(-100%);
 }

@@ -1,15 +1,11 @@
-"use client";
-
-// import { useEffect } from "react";
-// import { gsap } from "gsap";
-import ScrollTriggerPage from "@/components/ScrollTrigger";
+import CoolLandingPage from "@/components/CoolLandingPage";
+import TextAnimBanner from "@/components/TextAnimBanner";
 
 const Home = () => {
   return (
-    <main className="h-full w-full overflow-x-hidden">
-      {/* <Box /> */}
-      {/* <Lp /> */}
-      <ScrollTriggerPage />
+    <main className="h-full w-full overflow-x-hidden  bg-white">
+      {/* <TextAnimBanner /> */}
+      <CoolLandingPage />
     </main>
   );
 };

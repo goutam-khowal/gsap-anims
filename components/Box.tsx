@@ -36,7 +36,7 @@ const Box = () => {
       ref={boxRef}
       className="w-32 h-32 bg-red-500 rounded flex flex-col items-center justify-center text-amber-50 text-2xl font-bold font-serif"
     >
-      {["Happy", "Birthday", "Smriti"].map((line, idx) => (
+      {["Happy", "Birthday", "Dear"].map((line, idx) => (
         <p
           className="text-sm mb-1"
           key={idx}

@@ -1,6 +1,28 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
+import localFont from "next/font/local";
+
+const myFont = localFont({
+  src: [
+    {
+      path: "./NeueMachina-Light.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./NeueMachina-Regular.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./NeueMachina-Ultrabold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +47,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${myFont.className} antialiased `}
       >
         {children}
+        <CustomCursor />
       </body>
     </html>
   );

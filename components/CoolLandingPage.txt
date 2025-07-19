@@ -1,0 +1,80 @@
+        {/* Services cards container */}
+         <div className="container min-h-[80%] w-full py-[40px] px-[120px] flex flex-wrap justify-between gap-y-8">
+          {/* Card 1 */}
+          <div className="elem w-[47%] h-[400px] bg-gradient-to-br from-red-400 to-red-600 border-2 border-black rounded-[20px] transition-transform duration-300 hover:scale-[1.02] shrink-0 flex shadow-gray-800 shadow-xl">
+            <div className="elem-part1 flex flex-col w-[50%] h-full items-start justify-between">
+              <h2>Search Engine optimization</h2>
+              <h4>
+                <i className="ri-arrow-right-up-line"></i> Learn More
+              </h4>
+            </div>
+            <div className="elem-part2">
+              <img
+                src="https://neodrafts.com/_astro/hero12.Wth7asPL_ZjRIO9.svg"
+                alt=""
+              />
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="elem w-[47%] h-[400px] bg-gradient-to-br from-red-400 to-red-600 border-2 border-black rounded-[20px] transition-transform duration-300 hover:scale-[1.02] shrink-0 shadow-gray-800 shadow-xl">
+            <div className="elem-part1 ">
+              <h2>Search Engine optimization</h2>
+              <h4>Learn More</h4>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="elem w-[47%] h-[400px] bg-gradient-to-br from-red-400 to-red-600 border-2 border-black rounded-[20px] transition-transform duration-300 hover:scale-[1.02] shrink-0 shadow-gray-800 shadow-xl">
+            <div className="elem-part1">
+              <h2>Search Engine optimization</h2>
+              <h4>Learn More</h4>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="elem w-[47%] h-[400px] bg-gradient-to-br from-red-400 to-red-600 border-2 border-black rounded-[20px] transition-transform duration-300 hover:scale-[1.02] shrink-0 shadow-gray-800 shadow-xl">
+            <div className="elem-part1">
+              <h2>Search Engine optimization</h2>
+              <h4>Learn More</h4>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+      ---
+
+            {/* 
+Improve existing style only
+
+and
+keep non tailwind classes
+and
+
+      Fill data like in elem1
+      Search engine optimization
+
+      elem2:Social media marketing
+      elem3:Pay per click advertisement
+      elem4:E-mail marketing
+      */}
+      {/* <section className="section2 mt-35">
+        <div className="services bg-red-500 py-10 px-[120px] flex items-center justify-start gap-[50px]">
+          <h3 className="font-semibold bg-[#9AE975] py-[10px] px-[10px] rounded-xl text-6xl text-black font-[china]">
+            Services
+          </h3>
+          <p className="text-xl text-black font-semibold w-[40%]">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum
+            explicabo quasi, quia autem exercitationem iste deleniti fugiat fuga
+            vero modi!
+          </p>
+        </div>
+        <div className="container h-[80%] w-full py-[40px] px-[120px] flex justify-evenly flex-wrap gap-5">
+          <div className="elem w-[40%] h-[400px] bg-red-500 border-2 border-black rounded-[20px] shrink-0">
+            S
+          </div>
+          <div className="elem w-[40%] h-[400px] bg-red-500 border-2 border-black rounded-[20px] shrink-0"></div>
+          <div className="elem w-[40%] h-[400px] bg-red-500 border-2 border-black rounded-[20px] shrink-0"></div>
+          <div className="elem w-[40%] h-[400px] bg-red-500 border-2 border-black rounded-[20px] shrink-0"></div>
+        </div>
+      </section> 
