@@ -34,7 +34,7 @@ function CustomCursor() {
     <div
       ref={cursorRef}
       id={"custom-cursor"}
-      className="fixed top-[-15px] left-[-10px] z-[9999] pointer-events-none origin-center"
+      className="hidden sm:block fixed top-[-15px] left-[-10px] z-[9999] pointer-events-none origin-center"
     >
       <div className="relative h-full w-full">
         <Image src={loveCursor} width={30} height={30} alt="cursor" />
