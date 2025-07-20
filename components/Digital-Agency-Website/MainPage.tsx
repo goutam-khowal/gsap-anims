@@ -3,8 +3,13 @@ import Services from "./DGW-comps/Services";
 import BrandStripAnim from "./DGW-comps/BrandStripAnim";
 import Navbar from "./DGW-comps/Navbar";
 import GetProposalComp from "./DGW-comps/GetProposalComp";
-import { GetProposalCompData, CaseStudyData } from "./data";
+import {
+  GetProposalCompData,
+  CaseStudyData,
+  WorkingProcessDataProps,
+} from "./data";
 import CaseStudiesComp from "./DGW-comps/CaseStudies";
+import WorkingProcess from "./DGW-comps/WorkingProcess";
 
 function AgencyWebsite() {
   return (
@@ -12,7 +17,7 @@ function AgencyWebsite() {
       <Navbar />
       <section id="page1" className="text-black">
         {/* Hero */}
-        <div className="w-full px-5 font-[china] flex flex-col gap-y-2 items-center pt-15">
+        <div className="w-full px-5 font-[china] flex flex-col gap-y-2 items-center pt-18">
           <h1 className="font-extrabold text-4xl py-5">
             Navigating the digital landscape for success
           </h1>
@@ -49,6 +54,12 @@ function AgencyWebsite() {
           heading={CaseStudyData.heading}
           paragraph={CaseStudyData.paragraph}
           caseStdList={CaseStudyData.caseStdList}
+        />
+        {/* Working Process */}
+        <WorkingProcess
+          heading={WorkingProcessDataProps.heading}
+          paragraph={WorkingProcessDataProps.paragraph}
+          WPList={WorkingProcessDataProps.WPList}
         />
       </section>
     </div>

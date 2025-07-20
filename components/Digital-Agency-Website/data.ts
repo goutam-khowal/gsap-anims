@@ -1,4 +1,9 @@
-import { CaseStudies, GetProposalProps, ServiceProps } from "./types";
+import {
+  CaseStudies,
+  GetProposalProps,
+  ServiceProps,
+  WorkingProcesses,
+} from "./types";
 
 export const services: ServiceProps[] = [
   {
@@ -92,6 +97,49 @@ export const CaseStudyData: CaseStudies = {
       description:
         "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
       urlToCaseStudy: "#",
+    },
+  ],
+};
+
+export const WorkingProcessDataProps: WorkingProcesses = {
+  heading: "Our working process",
+  paragraph: "Step-by-step guide to achieving your Business Goals",
+  WPList: [
+    {
+      id: 1,
+      title: "Consultation",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+    },
+    {
+      id: 2,
+      title: "Research and Strategy Development",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+    },
+    {
+      id: 3,
+      title: "Implementation",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+    },
+    {
+      id: 4,
+      title: "Monitoring and Optimization",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+    },
+    {
+      id: 5,
+      title: "Reporting and Communication",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+    },
+    {
+      id: 6,
+      title: "Continual Improvement",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
     },
   ],
 };

@@ -10,41 +10,54 @@ function BrandStripAnim() {
   const marqueeRef2 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!marqueeRef.current) {
-      return;
+    function marqueeAnimation() {
+      if (!marqueeRef.current) {
+        return;
+      }
+      const marquee = marqueeRef.current;
+      const marqueeReverse = marqueeRef2.current;
+
+      const totalWidth = marquee.scrollWidth / 2;
+
+      const marqAnim = gsap.fromTo(
+        marquee,
+        { x: 0 },
+        {
+          x: -totalWidth,
+          duration: 10,
+          ease: "none",
+          repeat: -1,
+        }
+      );
+      const marqAnim2 = gsap.fromTo(
+        marqueeReverse,
+        { x: -totalWidth },
+        {
+          x: 0,
+          duration: 10,
+          ease: "none",
+          repeat: -1,
+        }
+      );
+
+      marqueeRef2.current?.addEventListener("mouseenter", () => {
+        marqAnim2.pause();
+      });
+      marqueeRef2.current?.addEventListener("mouseleave", () => {
+        marqAnim2.play();
+      });
+      marquee?.addEventListener("mouseenter", () => {
+        marqAnim.pause();
+      });
+      marquee?.addEventListener("mouseleave", () => {
+        marqAnim.play();
+      });
     }
-    const marquee = marqueeRef.current;
-    const marqueeReverse = marqueeRef2.current;
+    marqueeAnimation();
 
-    const totalWidth = marquee.scrollWidth / 2;
-
-    const marqAnim = gsap.fromTo(
-      marquee,
-      { x: 0 },
-      {
-        x: -totalWidth,
-        duration: 10,
-        ease: "none",
-        repeat: -1,
-      }
-    );
-    const marqAnim2 = gsap.fromTo(
-      marqueeReverse,
-      { x: -totalWidth },
-      {
-        x: 0,
-        duration: 10,
-        ease: "none",
-        repeat: -1,
-      }
-    );
-
-    marquee?.addEventListener("mouseenter", () => {
-      marqAnim.pause();
-    });
-    marquee?.addEventListener("mouseleave", () => {
-      marqAnim.play();
-    });
+    return () => {
+      marqueeAnimation();
+    };
   }, []);
   return (
     // {/* Infinite Scroll Images */}

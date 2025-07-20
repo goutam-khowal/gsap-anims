@@ -26,3 +26,20 @@ type CaseStudiesData = {
   description: string;
   urlToCaseStudy: string;
 };
+
+type WorkingProcessData = {
+  id: number;
+  title: string;
+  description: string;
+};
+
+export type WorkingProcesses = {
+  heading: string;
+  paragraph: string;
+  WPList: WorkingProcessData[];
+};
+
+type AccordionState = {
+  id: number;
+  state: boolean;
+};
