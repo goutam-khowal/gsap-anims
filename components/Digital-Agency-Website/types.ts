@@ -39,7 +39,7 @@ export type WorkingProcesses = {
   WPList: WorkingProcessData[];
 };
 
-type AccordionState = {
+export type AccordionState = {
   id: number;
   state: boolean;
 };
