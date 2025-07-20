@@ -4,6 +4,7 @@ import { ServiceProps } from "../types"; // adjust path as needed
 const Service: React.FC<ServiceProps> = ({
   title,
   description,
+  descClr,
   img,
   iconBg,
   iconClr,
@@ -16,34 +17,43 @@ const Service: React.FC<ServiceProps> = ({
       style={{ backgroundColor: cardBg }}
     >
       {/* Title */}
-      <div className="pt-10 px-10">
+      <div className="pt-5 px-5">
         <h1
           className="px-2 py-1 text-2xl w-fit rounded-xl font-semibold"
           style={{ backgroundColor: headingBg }}
         >
-          {title}
+          {title.split(" ").slice(0, -1).join(" ")}
+        </h1>
+        <h1
+          className="px-2 py-1 text-2xl w-fit rounded-xl font-semibold"
+          style={{ backgroundColor: headingBg }}
+        >
+          {title.split(" ").slice(-1)}
         </h1>
       </div>
-
+      <div className="flex justify-end w-full px-5 my-1">
+        {/* Service Image */}
+        <div className="mr-6">
+          <img
+            className="w-[150px] h-[150px] object-contain"
+            src={img}
+            alt="service-icon"
+          />
+        </div>
+      </div>
       {/* Icon + Image Section */}
-      <div className="flex justify-between items-end w-full px-10">
+      <div className="w-full px-5 mb-5 flex items-center gap-[2.5px]">
         {/* Arrow Icon */}
         <i
-          className="ri-arrow-right-up-line text-2xl rounded-full px-2 py-1 h-max mb-10"
+          className="ri-arrow-right-up-line text-2xl rounded-full px-2 py-1"
           style={{
             backgroundColor: iconBg,
             color: iconClr,
           }}
         ></i>
-
-        {/* Service Image */}
-        <div className="my-10">
-          <img
-            className="w-[140px] h-[120px] object-contain"
-            src={img}
-            alt="service-icon"
-          />
-        </div>
+        <span className="text-xl" style={{ color: descClr }}>
+          {description}
+        </span>
       </div>
     </div>
   );

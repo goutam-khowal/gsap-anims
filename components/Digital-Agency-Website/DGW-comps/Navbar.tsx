@@ -124,7 +124,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="text-black top-0 px-3 py-5 w-full flex justify-between overflow-hidden">
+      <nav className="fixed text-black top-0 px-3 py-5 w-full flex justify-between overflow-hidden bg-white shadow-[0_5px_30px_#666] z-50">
         <h1 className="text-2xl font-bold">
           <i
             ref={brandIconRef}

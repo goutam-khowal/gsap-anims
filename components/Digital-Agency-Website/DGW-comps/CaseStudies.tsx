@@ -1,0 +1,39 @@
+import React from "react";
+import { CaseStudies } from "../types";
+import { CaseStudyData } from "../data";
+import Link from "next/link";
+
+const CaseStudiesComp: React.FC<CaseStudies> = ({
+  heading,
+  paragraph,
+  caseStdList,
+}) => {
+  return (
+    <section className="w-full px-5 text-black">
+      <div className="flex w-full max-sm:flex-col items-center mt-14 px-5 gap-x-5">
+        <h1 className="bg-[#b9ff69] w-full text-center px-2 py-2 text-3xl font-bold rounded-md">
+          {heading}
+        </h1>
+        <p className="w-full leading-6 py-5 text-center m-0 p-0 text-base font-semibold">
+          {paragraph}
+        </p>
+      </div>
+      <div className="flex max-sm:flex-col overflow-hidden rounded-2xl bg-black">
+        {caseStdList.map((cs, index) => (
+          <div
+            key={index}
+            className="px-5 py-8  bg-black text-white border-[1px_1px]"
+          >
+            <p className="pb-5">{cs.description}</p>
+            <Link href={cs.urlToCaseStudy} className="text-[#b9ff69]">
+              Learn More{" "}
+              <i className="ri-arrow-right-up-line text-2xl rounded-full px-2 py-1"></i>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default CaseStudiesComp;

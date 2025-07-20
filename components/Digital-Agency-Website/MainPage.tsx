@@ -2,6 +2,9 @@ import "remixicon/fonts/remixicon.css";
 import Services from "./DGW-comps/Services";
 import BrandStripAnim from "./DGW-comps/BrandStripAnim";
 import Navbar from "./DGW-comps/Navbar";
+import GetProposalComp from "./DGW-comps/GetProposalComp";
+import { GetProposalCompData, CaseStudyData } from "./data";
+import CaseStudiesComp from "./DGW-comps/CaseStudies";
 
 function AgencyWebsite() {
   return (
@@ -9,7 +12,7 @@ function AgencyWebsite() {
       <Navbar />
       <section id="page1" className="text-black">
         {/* Hero */}
-        <div className="w-full px-5 font-[china] flex flex-col gap-y-2 items-center">
+        <div className="w-full px-5 font-[china] flex flex-col gap-y-2 items-center pt-15">
           <h1 className="font-extrabold text-4xl py-5">
             Navigating the digital landscape for success
           </h1>
@@ -36,26 +39,17 @@ function AgencyWebsite() {
         {/* Services */}
         <Services />
         {/* Get Proposal Card */}
-        <div>
-          <h1>Let's make things happen</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus ad inventore mollitia molestias cupiditate quos, esse
-            quae eaque corrupti non.
-          </p>
-          <button>Get your Proposal</button>
-        </div>
+        <GetProposalComp
+          heading={GetProposalCompData.heading}
+          paragraph={GetProposalCompData.paragraph}
+          btnText={GetProposalCompData.btnText}
+        />
         {/* Case Studies */}
-        <div>
-          <h1>Case Studies</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-            quaerat eos dolores unde optio!
-          </p>
-          <div>
-            <div></div>
-          </div>
-        </div>
+        <CaseStudiesComp
+          heading={CaseStudyData.heading}
+          paragraph={CaseStudyData.paragraph}
+          caseStdList={CaseStudyData.caseStdList}
+        />
       </section>
     </div>
   );
