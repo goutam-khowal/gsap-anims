@@ -1,7 +1,7 @@
 "use client";
 
 import "remixicon/fonts/remixicon.css";
-import { brandLogos } from "@/utils/images";
+import { brandLogos } from "@/components/Digital-Agency-Website/images";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

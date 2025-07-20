@@ -39,3 +39,7 @@ body {
 .marquee {
   transform: translateX(-100%);
 }
+
+.brand-letter {
+  display: inline-block;
+}

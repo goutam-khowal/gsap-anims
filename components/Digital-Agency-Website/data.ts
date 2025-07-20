@@ -1,0 +1,58 @@
+import { ServiceProps } from "./types";
+
+export const services: ServiceProps[] = [
+  {
+    title: "Search Engine Optimization",
+    description: "Learn More",
+    img: "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa7ea148298d9725f96f94_SEO_Image.svg",
+    iconBg: "#b9ff66",
+    cardBg: "#F3F3F3",
+    headingBg: "#b9ff66",
+    iconClr: "#000",
+  },
+  {
+    title: "Pay Per Click Advertising",
+    description: "Learn More",
+    img: "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9497ddb01c1c4066be55_PPC_Image.svg",
+    iconBg: "#000",
+    cardBg: "#b9ff66",
+    headingBg: "#fff",
+    iconClr: "#b9ff66",
+  },
+  {
+    title: "Social Media Marketing",
+    description: "Learn More",
+    img: "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa97e9f7c085764d086011_SocialMedia_Image.svg",
+    iconBg: "#b9ff66",
+    cardBg: "#555555",
+    headingBg: "#b9ff66",
+    iconClr: "#000",
+  },
+  {
+    title: "Email Marketing",
+    description: "Learn More",
+    img: "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9c06136c230e98d7bb63_EmailMarketing_Image.svg",
+    iconBg: "#b9ff66",
+    cardBg: "#f3f3f3",
+    headingBg: "#b9ff66",
+    iconClr: "#000",
+  },
+  {
+    title: "Content Creation",
+    description: "Learn More",
+    img: "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9e045f63c6513a70eb19_ContentCreation_Image.svg",
+    iconBg: "#000",
+    cardBg: "#b9ff66",
+    headingBg: "#FFFFFF",
+    iconClr: "#b9ff66",
+  },
+  {
+    title: "Analytics & Tracking",
+    description: "Learn More",
+    img: "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aaa15977ff9e94caa248f2_Analytics_Image.svg",
+    iconBg: "#b9ff66",
+    cardBg: "#555555",
+    headingBg: "#FFFFFF",
+    iconClr: "#000",
+  },
+];
