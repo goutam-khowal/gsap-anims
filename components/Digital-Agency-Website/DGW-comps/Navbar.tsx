@@ -7,6 +7,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   const timeline = useRef<gsap.core.Timeline | null>(null);
+  const navRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   // Refs for all animated elements

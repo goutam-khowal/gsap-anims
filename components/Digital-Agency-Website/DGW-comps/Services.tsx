@@ -21,12 +21,12 @@ function Services() {
             key={index}
             title={service.title}
             description={service.description}
-            descClr={service.descClr}
-            iconBg={service.iconBg}
-            iconClr={service.iconClr}
-            cardBg={service.cardBg}
-            headingBg={service.headingBg}
-            img={service.img}
+            descriptionColor={service.descriptionColor}
+            iconBackground={service.iconBackground}
+            iconColor={service.iconColor}
+            cardBackground={service.cardBackground}
+            headingBackground={service.headingBackground}
+            image={service.image}
           />
         ))}
       </div>

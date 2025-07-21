@@ -3,13 +3,10 @@ import Services from "./DGW-comps/Services";
 import BrandStripAnim from "./DGW-comps/BrandStripAnim";
 import Navbar from "./DGW-comps/Navbar";
 import GetProposalComp from "./DGW-comps/GetProposalComp";
-import {
-  GetProposalCompData,
-  CaseStudyData,
-  WorkingProcessDataProps,
-} from "./data";
+import { caseStudies, workingProcess, proposal, teamSection } from "./data";
 import CaseStudiesComp from "./DGW-comps/CaseStudies";
 import WorkingProcess from "./DGW-comps/WorkingProcess";
+import TeamSectionComp from "./DGW-comps/TeamSection";
 
 function AgencyWebsite() {
   return (
@@ -45,21 +42,27 @@ function AgencyWebsite() {
         <Services />
         {/* Get Proposal Card */}
         <GetProposalComp
-          heading={GetProposalCompData.heading}
-          paragraph={GetProposalCompData.paragraph}
-          btnText={GetProposalCompData.btnText}
+          heading={proposal.heading}
+          paragraph={proposal.paragraph}
+          buttonText={proposal.buttonText}
         />
         {/* Case Studies */}
         <CaseStudiesComp
-          heading={CaseStudyData.heading}
-          paragraph={CaseStudyData.paragraph}
-          caseStdList={CaseStudyData.caseStdList}
+          heading={caseStudies.heading}
+          paragraph={caseStudies.paragraph}
+          caseStudyList={caseStudies.caseStudyList}
         />
         {/* Working Process */}
         <WorkingProcess
-          heading={WorkingProcessDataProps.heading}
-          paragraph={WorkingProcessDataProps.paragraph}
-          WPList={WorkingProcessDataProps.WPList}
+          heading={workingProcess.heading}
+          paragraph={workingProcess.paragraph}
+          processList={workingProcess.processList}
+        />
+        {/* Team Section */}
+        <TeamSectionComp
+          heading={teamSection.heading}
+          paragraph={teamSection.paragraph}
+          members={teamSection.members}
         />
       </section>
     </div>

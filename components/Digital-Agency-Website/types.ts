@@ -1,45 +1,58 @@
-export type ServiceProps = {
+export type Service = {
   title: string;
   description: string;
-  descClr: string;
-  img: string;
-  iconBg: string;
-  iconClr: string;
-  cardBg: string;
-  headingBg: string;
+  descriptionColor: string; // Renamed from 'descClr'
+  image: string; // Renamed from 'img'
+  iconBackground: string; // Renamed from 'iconBg'
+  iconColor: string; // Renamed from 'iconClr'
+  cardBackground: string; // Renamed from 'cardBg'
+  headingBackground: string; // Renamed from 'headingBg'
 };
 
-export type GetProposalProps = {
+export type Proposal = {
   heading: string;
   paragraph: string;
-  btnText: string;
+  buttonText: string; // Renamed from 'btnText'
 };
 
 export type CaseStudies = {
   heading: string;
   paragraph: string;
-  caseStdList: CaseStudiesData[];
+  caseStudyList: CaseStudy[]; // Renamed from 'caseStdList'
 };
 
-type CaseStudiesData = {
+export type CaseStudy = {
   id: number;
   description: string;
-  urlToCaseStudy: string;
+  url: string; // Renamed from 'urlToCaseStudy'
 };
 
-type WorkingProcessData = {
+export type WorkingProcess = {
+  heading: string;
+  paragraph: string;
+  processList: WorkingProcessStep[]; // Renamed from 'WPList'
+};
+
+export type WorkingProcessStep = {
   id: number;
   title: string;
   description: string;
 };
 
-export type WorkingProcesses = {
-  heading: string;
-  paragraph: string;
-  WPList: WorkingProcessData[];
+export type AccordionStatus = {
+  id: number;
+  isOpen: boolean; // Renamed from 'state' for boolean clarity
 };
 
-export type AccordionState = {
-  id: number;
-  state: boolean;
+export type TeamSection = {
+  heading: string;
+  paragraph: string;
+  members: TeamMember[]; // Renamed from 'teamMembers'
+};
+
+export type TeamMember = {
+  image: string; // Renamed from 'img'
+  name: string;
+  designation: string;
+  experience: string; // Renamed from 'exp'
 };

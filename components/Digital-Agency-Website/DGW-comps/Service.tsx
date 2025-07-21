@@ -1,32 +1,32 @@
 import React from "react";
-import { ServiceProps } from "../types"; // adjust path as needed
+import { Service } from "../types"; // adjust path as needed
 
-const Service: React.FC<ServiceProps> = ({
+const ServiceComp: React.FC<Service> = ({
   title,
   description,
-  descClr,
-  img,
-  iconBg,
-  iconClr,
-  cardBg,
-  headingBg,
+  descriptionColor,
+  image,
+  iconBackground,
+  iconColor,
+  cardBackground,
+  headingBackground,
 }) => {
   return (
     <div
       className="border border-gray-300 rounded-2xl shadow-[0_8px_#333] w-full mb-10"
-      style={{ backgroundColor: cardBg }}
+      style={{ backgroundColor: cardBackground }}
     >
       {/* Title */}
       <div className="pt-5 px-5">
         <h1
           className="px-2 py-1 text-2xl w-fit rounded-xl font-semibold"
-          style={{ backgroundColor: headingBg }}
+          style={{ backgroundColor: headingBackground }}
         >
           {title.split(" ").slice(0, -1).join(" ")}
         </h1>
         <h1
           className="px-2 py-1 text-2xl w-fit rounded-xl font-semibold"
-          style={{ backgroundColor: headingBg }}
+          style={{ backgroundColor: headingBackground }}
         >
           {title.split(" ").slice(-1)}
         </h1>
@@ -36,22 +36,22 @@ const Service: React.FC<ServiceProps> = ({
         <div className="mr-6">
           <img
             className="w-[150px] h-[150px] object-contain"
-            src={img}
+            src={image}
             alt="service-icon"
           />
         </div>
       </div>
       {/* Icon + Image Section */}
-      <div className="w-full px-5 mb-5 flex items-center gap-[2.5px]">
+      <div className="w-full px-5 mb-5 flex items-center gap-2">
         {/* Arrow Icon */}
         <i
           className="ri-arrow-right-up-line text-2xl rounded-full px-2 py-1"
           style={{
-            backgroundColor: iconBg,
-            color: iconClr,
+            backgroundColor: iconBackground,
+            color: iconColor,
           }}
         ></i>
-        <span className="text-xl" style={{ color: descClr }}>
+        <span className="text-xl" style={{ color: descriptionColor }}>
           {description}
         </span>
       </div>
@@ -59,4 +59,4 @@ const Service: React.FC<ServiceProps> = ({
   );
 };
 
-export default Service;
+export default ServiceComp;

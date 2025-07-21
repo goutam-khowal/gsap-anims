@@ -1,13 +1,12 @@
 import React from "react";
 import { CaseStudies } from "../types";
-import { CaseStudyData } from "../data";
 import Link from "next/link";
 import clsx from "clsx";
 
 const CaseStudiesComp: React.FC<CaseStudies> = ({
   heading,
   paragraph,
-  caseStdList,
+  caseStudyList,
 }) => {
   return (
     <section className="w-full px-5 text-black">
@@ -20,18 +19,18 @@ const CaseStudiesComp: React.FC<CaseStudies> = ({
         </p>
       </div>
       <div className="flex max-sm:flex-col overflow-hidden rounded-2xl bg-black">
-        {caseStdList.map((cs, index) => (
+        {caseStudyList.map((cs, index) => (
           <div
             key={index}
             className={clsx(
               "px-5 py-8 bg-black text-white",
-              index !== caseStdList.length - 1 && "border-b border-[#fff]",
-              index % caseStdList.length !== caseStdList.length - 1 &&
+              index !== caseStudyList.length - 1 && "border-b border-[#fff]",
+              index % caseStudyList.length !== caseStudyList.length - 1 &&
                 "border-r border-[#fff]"
             )}
           >
             <p className="pb-5">{cs.description}</p>
-            <Link href={cs.urlToCaseStudy} className="text-[#b9ff69]">
+            <Link href={cs.url} className="text-[#b9ff69]">
               Learn More{" "}
               <i className="ri-arrow-right-up-line text-2xl rounded-full px-2 py-1"></i>
             </Link>

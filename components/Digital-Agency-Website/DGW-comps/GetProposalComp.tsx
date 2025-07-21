@@ -1,6 +1,6 @@
-import { GetProposalProps } from "../types";
+import { Proposal } from "../types";
 
-const GetProposalComp = ({ heading, paragraph, btnText }: GetProposalProps) => {
+const GetProposalComp = ({ heading, paragraph, buttonText }: Proposal) => {
   return (
     <section className="w-full px-5 my-30">
       <div className="bg-[#F3F3F3] px-5 py-10 rounded-2xl">
@@ -11,7 +11,7 @@ const GetProposalComp = ({ heading, paragraph, btnText }: GetProposalProps) => {
              hover:bg-[#b9ff69] hover:text-[#000] hover:shadow-[0px_10px_#000] 
              duration-300 transition-all"
         >
-          {btnText}
+          {buttonText}
         </button>
       </div>
     </section>
