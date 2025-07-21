@@ -45,12 +45,12 @@ const Testimonials: React.FC<Testimonies> = ({
       setCurrentIndex((prev) =>
         prev === 0 ? testimonyList.length - 1 : prev - 1
       );
-      rtlTweenRef.current?.play();
+      ltrTweenRef.current?.play();
     } else if (id === "rightBtn") {
       setCurrentIndex((prev) =>
         prev === testimonyList.length - 1 ? 0 : prev + 1
       );
-      ltrTweenRef.current?.play();
+      rtlTweenRef.current?.play();
     }
   }
 
@@ -61,7 +61,7 @@ const Testimonials: React.FC<Testimonies> = ({
         prev === testimonyList.length - 1 ? 0 : prev + 1
       );
       rtlTweenRef.current?.play();
-    }, 5000);
+    }, 1000 * 15);
 
     // Cleanup on unmount
     return () => clearInterval(interval);
@@ -77,12 +77,12 @@ const Testimonials: React.FC<Testimonies> = ({
           {paragraph}
         </p>
       </div>
-      <div className="relative">
+      <div className="relative px-5">
         {/* Left Hover and Button */}
         <div
           onMouseEnter={() => setShowLeftBtn(true)}
           onMouseLeave={() => setShowLeftBtn(false)}
-          className="h-full w-[40%] left-0 top-0 absolute text-4xl z-1 flex items-center justify-start px-5"
+          className="h-full w-[40%] left-5 top-0 absolute text-4xl z-1 flex items-center justify-start px-5"
         >
           <i
             ref={leftBtnRef}
@@ -118,7 +118,7 @@ const Testimonials: React.FC<Testimonies> = ({
         <div
           onMouseEnter={() => setShowRightBtn(true)}
           onMouseLeave={() => setShowRightBtn(false)}
-          className="h-full w-[40%] right-0 top-0 absolute text-4xl z-1 flex items-center justify-end px-5"
+          className="h-full w-[40%] right-5 top-0 absolute text-4xl z-1 flex items-center justify-end px-5"
         >
           <i
             ref={rightBtnRef}
