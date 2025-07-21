@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useRef, useState, useEffect, TouchEvent } from "react";
-import { Testimonies, Testimony } from "../types";
+import React, { useRef, useState, useEffect } from "react";
+import { Testimonies } from "../types";
 import { gsap } from "gsap";
 import clsx from "clsx";
 
@@ -13,6 +13,8 @@ const Testimonials: React.FC<Testimonies> = ({
   const leftBtnRef = useRef<HTMLDivElement>(null);
   const rightBtnRef = useRef<HTMLDivElement>(null);
   const slideRef = useRef<HTMLDivElement>(null);
+  const ltrTweenRef = useRef<GSAPTween>(null);
+  const rtlTweenRef = useRef<GSAPTween>(null);
   const [showLeftBtn, setShowLeftBtn] = useState(false);
   const [showRightBtn, setShowRightBtn] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,11 +22,22 @@ const Testimonials: React.FC<Testimonies> = ({
   // Animate slide in whenever index changes
   useEffect(() => {
     if (!slideRef.current) return;
-    gsap.fromTo(
+    const leftToRightTween = gsap.fromTo(
       slideRef.current,
-      { opacity: 0, duration: 1.8 },
+      { x: -100, opacity: 0, duration: 0.8, ease: "power2.out" },
       { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
     );
+    leftToRightTween.pause();
+
+    const rightToLeftTween = gsap.fromTo(
+      slideRef.current,
+      { x: 100, opacity: 0, duration: 0.8, ease: "power2.out" },
+      { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+    );
+    rightToLeftTween.pause();
+
+    ltrTweenRef.current = leftToRightTween;
+    rtlTweenRef.current = rightToLeftTween;
   }, [currentIndex]);
 
   function carouselClickHandler(id: string) {
@@ -32,36 +45,27 @@ const Testimonials: React.FC<Testimonies> = ({
       setCurrentIndex((prev) =>
         prev === 0 ? testimonyList.length - 1 : prev - 1
       );
+      rtlTweenRef.current?.play();
     } else if (id === "rightBtn") {
       setCurrentIndex((prev) =>
         prev === testimonyList.length - 1 ? 0 : prev + 1
       );
+      ltrTweenRef.current?.play();
     }
   }
 
-  const touchStartX = useRef<number | null>(null);
-
-  function handleTouchStart(e: React.TouchEvent<HTMLDivElement>) {
-    touchStartX.current = e.touches[0].clientX;
-  }
-
-  function handleTouchEnd(e: React.TouchEvent<HTMLDivElement>) {
-    if (touchStartX.current === null) return;
-    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
-    const threshold = 50; // Minimum px distance to be considered a swipe
-    if (deltaX > threshold) {
-      // Swiped right → previous slide
-      setCurrentIndex((prev) =>
-        prev === 0 ? testimonyList.length - 1 : prev - 1
-      );
-    } else if (deltaX < -threshold) {
-      // Swiped left → next slide
+  useEffect(() => {
+    // Start an interval for auto-advancing the slide every 5s
+    const interval = setInterval(() => {
       setCurrentIndex((prev) =>
         prev === testimonyList.length - 1 ? 0 : prev + 1
       );
-    }
-    touchStartX.current = null;
-  }
+      rtlTweenRef.current?.play();
+    }, 5000);
+
+    // Cleanup on unmount
+    return () => clearInterval(interval);
+  }, [testimonyList.length]);
 
   return (
     <section className="pb-30 px-5">
@@ -91,17 +95,14 @@ const Testimonials: React.FC<Testimonies> = ({
           />
         </div>
 
-        <div className="flex relative bg-black rounded-2xl overflow-hidden">
+        <div className="flex w-fit bg-black rounded-2xl overflow-hidden">
           {/* Slide */}
-          <div className="flex relative bg-black rounded-2xl overflow-hidden min-h-[300px] ">
+          <div className="flex  rounded-2xl overflow-hidden w-fit min-h-[300px] ">
             <div
               ref={slideRef}
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
               className="min-w-full text-white mr-10 px-10 py-10 max-h-[calc(70vh)] flex flex-col justify-center "
-              style={{ touchAction: "pan-y" }}
             >
-              <p className="text-justify">
+              <p className="text-center">
                 {testimonyList[currentIndex].description}
               </p>
               <p className="mt-10 text-center text-sm italic font-bold">
