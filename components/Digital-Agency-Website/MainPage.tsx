@@ -3,10 +3,17 @@ import Services from "./DGW-comps/Services";
 import BrandStripAnim from "./DGW-comps/BrandStripAnim";
 import Navbar from "./DGW-comps/Navbar";
 import GetProposalComp from "./DGW-comps/GetProposalComp";
-import { caseStudies, workingProcess, proposal, teamSection } from "./data";
+import {
+  caseStudies,
+  workingProcess,
+  proposal,
+  teamSection,
+  testimonies,
+} from "./data";
 import CaseStudiesComp from "./DGW-comps/CaseStudies";
 import WorkingProcess from "./DGW-comps/WorkingProcess";
 import TeamSectionComp from "./DGW-comps/TeamSection";
+import Testimonials from "./DGW-comps/Testimonials";
 
 function AgencyWebsite() {
   return (
@@ -63,6 +70,12 @@ function AgencyWebsite() {
           heading={teamSection.heading}
           paragraph={teamSection.paragraph}
           members={teamSection.members}
+        />
+        {/* Testimonials */}
+        <Testimonials
+          heading={testimonies.heading}
+          paragraph={testimonies.paragraph}
+          testimonyList={testimonies.testimonyList}
         />
       </section>
     </div>

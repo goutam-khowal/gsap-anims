@@ -2,7 +2,8 @@ import {
   CaseStudies,
   Proposal,
   Service,
-  TeamSection,
+  Team,
+  Testimonies,
   WorkingProcess,
 } from "./types";
 
@@ -151,7 +152,7 @@ export const workingProcess: WorkingProcess = {
   ],
 };
 
-export const teamSection: TeamSection = {
+export const teamSection: Team = {
   heading: "Our Team",
   paragraph:
     "Meet the skilled and experienced team behind our successful digital marketing strategies",
@@ -167,7 +168,8 @@ export const teamSection: TeamSection = {
       image: "https://m.media-amazon.com/images/I/51633hpyAiL.jpg",
       name: "Uttpal Bhardwaj",
       designation: "CEO ka boss",
-      experience: "9999.99+ years of executive-level decision-making experience.",
+      experience:
+        "9999.99+ years of executive-level decision-making experience.",
     },
     {
       image:
@@ -216,6 +218,74 @@ export const teamSection: TeamSection = {
       designation: "Content Creator",
       experience:
         "2+ years of experience in writing and editing. Skilled in creating compelling, SEO-optimized content for various industries",
+    },
+  ],
+};
+
+export const testimonies: Testimonies = {
+  heading: "Testimonials",
+  paragraph:
+    "Hear from our satisfied clients: Read our testimonials to learn more about our Digital Marketing services",
+  testimonyList: [
+    {
+      description:
+        '"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."',
+      name: "John Smith",
+      designation: "Marketing Director at XYZ Corp",
+    },
+    {
+      description:
+        '"Positivus exceeded our expectations with their innovative strategies. Our brand visibility has grown tremendously since we partnered with them. Outstanding service and amazing results!"',
+      name: "Sarah Williams",
+      designation: "CEO at NovaTech Solutions",
+    },
+    {
+      description:
+        '"The communication and expertise from Positivus was top notch. They delivered on every promise and helped us scale our social media outreach to new heights."',
+      name: "Carlos Mendoza",
+      designation: "Head of Communications at GreenLeaf",
+    },
+    {
+      description:
+        '"We love working with Positivus. Their creative campaigns and attention to detail drove high engagement and real measurable impact for our business."',
+      name: "Emily Chen",
+      designation: "Digital Strategist at FreshBites",
+    },
+    {
+      description:
+        '"Within just a few months, our online conversions doubled thanks to the comprehensive approach from the Positivus team. Highly recommended!"',
+      name: "Rajesh Patel",
+      designation: "E-commerce Manager at Craftsy",
+    },
+    {
+      description:
+        '"Positivus took the time to understand our unique business needs and delivered a tailored strategy that worked perfectly. We could not be happier with the partnership."',
+      name: "Linda Thompson",
+      designation: "Operations Lead at Urban Market",
+    },
+    {
+      description:
+        '"I am thoroughly impressed by the professionalism and results Positivus brought to our digital campaigns. Their team was approachable and knowledgeable."',
+      name: "Michael O’Sullivan",
+      designation: "CMO at BrightPath Logistics",
+    },
+    {
+      description:
+        '"From SEO to paid ads, the team at Positivus shines in all aspects of digital marketing. We saw growth across every channel and a clear return on investment."',
+      name: "Aisha Farouk",
+      designation: "Brand Manager at FitNation",
+    },
+    {
+      description:
+        '"Reliable, effective, and innovative—Positivus transformed our online presence and customer engagement. We look forward to continued collaboration."',
+      name: "Tom Miller",
+      designation: "Product Owner at EZWare Solutions",
+    },
+    {
+      description:
+        '"The dedication and creativity of Positivus set them apart. Our campaigns have never looked better, and the results speak for themselves!"',
+      name: "Julia Lam",
+      designation: "Founder at Artistry Lane",
     },
   ],
 };
