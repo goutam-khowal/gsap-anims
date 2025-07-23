@@ -72,7 +72,7 @@ const WorkingProcessComp: React.FC<WorkingProcess> = ({
         scroller: "body",
         start: "top center",
         end: "bottom 80%",
-        markers: true,
+        // markers: true,
         toggleActions: "play none none none",
         scrub: 2,
       },
