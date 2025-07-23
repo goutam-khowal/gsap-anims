@@ -14,7 +14,7 @@ const Hero = () => {
   useLayoutEffect(() => {
     if (!heroHeadingRef.current) return;
     const rect = heroHeadingRef.current.getBoundingClientRect();
-    const scrollTop = window.pageYOffset + rect.top - 64;
+    const scrollTop = window.pageYOffset + rect.top - 500;
     window.scrollTo({ top: scrollTop, behavior: "instant" });
   }, []);
 
