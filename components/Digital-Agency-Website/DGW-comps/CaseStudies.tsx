@@ -14,8 +14,8 @@ const CaseStudiesComp: React.FC<CaseStudies> = ({
   paragraph,
   caseStudyList,
 }) => {
-  const mainSectionRef = useRef(null);
-  const secondSubSectionRef = useRef(null);
+  const mainSectionRef = useRef<HTMLElement>(null);
+  const secondSubSectionRef = useRef<HTMLDivElement>(null);
 
   gsap.registerPlugin(ScrollTrigger);
   useGSAP(() => {
