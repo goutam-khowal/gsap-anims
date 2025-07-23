@@ -18,10 +18,10 @@ function Services() {
   // const firstSubSectionP = useRef(null);
 
   // Array ref to collect all card refs
-  const cardsRefs = useRef([]);
+  const cardsRefs = useRef<HTMLDivElement[]>([]);
 
   // Ref callback to collect cards refs without duplication
-  function addToRefs(el) {
+  function addToRefs(el: HTMLDivElement) {
     if (el && !cardsRefs.current.includes(el)) {
       cardsRefs.current.push(el);
     }
