@@ -18,7 +18,7 @@ const WorkingProcessComp: React.FC<WorkingProcess> = ({
   const mainSectionRef = useRef(null);
   const firstSubSectionH1 = useRef(null);
   const firstSubSectionP = useRef(null);
-  const secondSubSectionRef = useRef(null);
+  const secondSubSectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
