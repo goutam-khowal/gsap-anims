@@ -16,7 +16,7 @@ function SVGElement() {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
     let path = `M 10 200 Q 400 200 790 200`;
-    let finalPath = `M 10 200 Q 400 200 790 200`;
+    const finalPath = `M 10 200 Q 400 200 790 200`;
 
     svgRef.current?.addEventListener("mousemove", function (dets) {
       path = `M 10 200 Q ${dets.x} ${dets.y} 790 200`;

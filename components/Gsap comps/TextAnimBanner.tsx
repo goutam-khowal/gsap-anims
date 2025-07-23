@@ -1,7 +1,6 @@
 "use client";
 
 import { gsap } from "gsap";
-("react");
 import MarqueeList from "@/components/Gsap comps/MarqueeList";
 import { useEffect, useRef } from "react";
 

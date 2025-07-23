@@ -6,7 +6,6 @@ import Image from "next/image";
 
 function CursorScaleOnImage() {
   const imageWrapperRef = useRef<HTMLDivElement>(null);
-  const cursorRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
     const imageEl = imageWrapperRef.current;
 

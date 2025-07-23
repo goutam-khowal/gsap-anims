@@ -1,24 +1,62 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import { CaseStudies } from "../types";
 import Link from "next/link";
 import clsx from "clsx";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimHeadingPara from "./AnimtedComponents/AnimHeadingPara";
 
 const CaseStudiesComp: React.FC<CaseStudies> = ({
   heading,
   paragraph,
   caseStudyList,
 }) => {
+  const mainSectionRef = useRef(null);
+  const secondSubSectionRef = useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    if (!secondSubSectionRef || !mainSectionRef.current) return;
+
+    const tlSecondSubSection = gsap.timeline({
+      scrollTrigger: {
+        trigger: secondSubSectionRef.current,
+        scroller: "body",
+        start: "top 80%",
+        end: "top center",
+        // markers: true,
+        toggleActions: "play none none none",
+        scrub: 2,
+      },
+    });
+    if (!secondSubSectionRef.current) return;
+
+    // Get all direct children as an array
+    const secondSection = Array.from(secondSubSectionRef.current.children);
+
+    // Animate all children with a stagger for "waterfall" effect
+    tlSecondSubSection.from(secondSection, {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power2.out",
+    });
+  });
+
   return (
-    <section className="w-full px-5 text-black">
-      <div className="flex w-full max-sm:flex-col items-center mt-14 gap-x-5">
-        <h1 className="bg-[#b9ff69] w-full text-center px-2 py-2 text-3xl font-bold rounded-md">
-          {heading}
-        </h1>
-        <p className="w-full leading-6 py-5 text-center m-0 text-base font-semibold">
-          {paragraph}
-        </p>
-      </div>
-      <div className="flex max-sm:flex-col overflow-hidden rounded-2xl bg-black">
+    <section
+      ref={mainSectionRef}
+      className="w-full px-10 max-sm:px-5 text-black  mb-24 py-5"
+    >
+      <AnimHeadingPara heading={heading} paragraph={paragraph} />
+      <div
+        ref={secondSubSectionRef}
+        className="flex max-sm:flex-col overflow-hidden rounded-2xl bg-black"
+      >
         {caseStudyList.map((cs, index) => (
           <div
             key={index}

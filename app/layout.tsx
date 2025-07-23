@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/Gsap comps/CustomCursor";
 import localFont from "next/font/local";
+import Navbar from "@/components/Digital-Agency-Website/DGW-comps/Navbar";
 
 const myFont = localFont({
   src: [
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${myFont.className} antialiased `}
       >
+        <Navbar />
         {children}
         <CustomCursor />
       </body>

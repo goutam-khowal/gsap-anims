@@ -1,36 +1,85 @@
+"use client";
+
 import { services } from "@/components/Digital-Agency-Website/data";
 import Service from "./Service";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import AnimHeadingPara from "./AnimtedComponents/AnimHeadingPara";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
+  // One main container ref wrapping section
+  const mainSectionRef = useRef(null);
+  // Individual refs for heading and paragraph for scroll animation
+  // const firstSubSectionH1 = useRef(null);
+  // const firstSubSectionP = useRef(null);
+
+  // Array ref to collect all card refs
+  const cardsRefs = useRef([]);
+
+  // Ref callback to collect cards refs without duplication
+  function addToRefs(el) {
+    if (el && !cardsRefs.current.includes(el)) {
+      cardsRefs.current.push(el);
+    }
+  }
+
+  // Animate each card individually as it scrolls into view without duplication and resetting refs
+  useGSAP(
+    () => {
+      if (!cardsRefs.current.length) return;
+
+      cardsRefs.current.forEach((card) => {
+        gsap.from(card, {
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            end: "top center",
+            toggleActions: "play none none none",
+            scrub: 2,
+            // markers: true,
+          },
+        });
+      });
+    },
+    { scope: mainSectionRef }
+  );
+
   return (
-    <>
-      {/* Services heading */}
-      <div className="w-full flex max-sm:flex-col items-center mt-14 px-5 gap-x-5">
-        <h1 className="text-black w-full text-center px-2 py-2 text-3xl font-bold rounded-md bg-[#9AE975]">
-          Services
-        </h1>
-        <p className="text-center m-0 p-0 w-full text-base font-semibold py-8">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque
-          molestiae voluptas dolore! voluptas dolore!
-        </p>
-      </div>
+    // Main container with ref
+    <section ref={mainSectionRef} className="pt-8 mb-24 px-10 max-sm:px-5">
+      {/* Heading Comp*/}
+      <AnimHeadingPara
+        heading={services.heading}
+        paragraph={services.paragraph}
+      />
       {/* Services Cards */}
-      <div className="flex flex-col items-center w-full px-5">
-        {services.map((service, index) => (
-          <Service
-            key={index}
-            title={service.title}
-            description={service.description}
-            descriptionColor={service.descriptionColor}
-            iconBackground={service.iconBackground}
-            iconColor={service.iconColor}
-            cardBackground={service.cardBackground}
-            headingBackground={service.headingBackground}
-            image={service.image}
-          />
+      <div
+        id="service-cards-wrapper"
+        className="flex flex-col items-center w-full"
+      >
+        {services.services.map((service, index) => (
+          <div key={index} ref={addToRefs} className="service-card w-full">
+            <Service
+              title={service.title}
+              description={service.description}
+              descriptionColor={service.descriptionColor}
+              iconBackground={service.iconBackground}
+              iconColor={service.iconColor}
+              cardBackground={service.cardBackground}
+              headingBackground={service.headingBackground}
+              image={service.image}
+            />
+          </div>
         ))}
       </div>
-    </>
+    </section>
   );
 }
 

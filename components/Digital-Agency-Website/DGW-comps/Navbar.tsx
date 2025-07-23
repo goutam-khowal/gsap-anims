@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
 import Link from "next/link";
 
 const Navbar = () => {
   const timeline = useRef<gsap.core.Timeline | null>(null);
-  const navRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   // Refs for all animated elements
@@ -16,10 +16,12 @@ const Navbar = () => {
   const closeIconRef = useRef<HTMLElement>(null);
   const navItemsRef = useRef<HTMLUListElement>(null);
   const requestBtnRef = useRef<HTMLButtonElement>(null);
+  const lgNavItemsRef = useRef<HTMLUListElement>(null);
+  const lgRequestBtnRef = useRef<HTMLButtonElement>(null);
   const brandIconRef = useRef<HTMLElement>(null);
   const brandLettersRef = useRef<HTMLSpanElement[]>([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     timeline.current = gsap.timeline({ paused: true });
     const tl = timeline.current;
 
@@ -32,11 +34,7 @@ const Navbar = () => {
 
     tl.to(
       sidebarRef.current,
-      {
-        right: 0,
-        duration: 0.5,
-        ease: "power2.out",
-      },
+      { right: 0, duration: 0.5, ease: "power2.out" },
       "-=0.2"
     );
 
@@ -67,11 +65,7 @@ const Navbar = () => {
 
     tl.from(
       requestBtnRef.current,
-      {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
-      },
+      { opacity: 0, duration: 0.5, ease: "power2.out" },
       "-=0.8"
     );
 
@@ -89,27 +83,32 @@ const Navbar = () => {
 
     brandTimeline.from(
       brandIconRef.current,
-      {
-        rotate: -90,
-        opacity: 0,
-        x: -20,
-        duration: 0.4,
-        ease: "back.out(1.5)",
-      },
+      { rotate: -90, opacity: 0, x: -20, duration: 0.4, ease: "back.out(1.5)" },
       "-=0.7"
     );
 
+    if (!lgNavItemsRef) return;
+    lgNavItemsRef.current?.querySelectorAll("li").forEach((item) => {
+      brandTimeline.from(item, {
+        opacity: 0,
+        y: 15,
+        duration: 0.2,
+        ease: "power2.out",
+      });
+    }, "-=1.3");
+
     brandTimeline.from(
       sidebarLinesRef.current,
-      {
-        opacity: 0,
-        x: 20,
-        duration: 0.3,
-        ease: "power2.out",
-      },
+      { opacity: 0, x: 20, duration: 0.3, ease: "power2.out" },
+      "-=1.3"
+    );
+    if (!lgRequestBtnRef) return;
+    brandTimeline.from(
+      lgRequestBtnRef.current,
+      { opacity: 0, x: 20, duration: 0.3, ease: "power2.out" },
       "-=0.3"
     );
-  }, []);
+  });
 
   function openSideBar() {
     timeline.current?.play();
@@ -126,8 +125,8 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="fixed text-black top-0 px-3 py-5 w-full flex justify-between overflow-hidden bg-white z-50">
-        <h1 className="text-2xl font-bold">
+      <nav className="fixed text-black top-0 px-10 max-sm:px-5  py-5 w-full flex justify-between overflow-hidden bg-white z-50 gap-5">
+        <h1 className="text-2xl font-bold whitespace-nowrap">
           <i
             ref={brandIconRef}
             className="ri-shining-2-fill rotate-45 text-2xl inline-block"
@@ -147,10 +146,40 @@ const Navbar = () => {
           </span>
         </h1>
 
+        <div className="flex items-center w-full gap-x-5 max-lg:hidden">
+          <ul
+            ref={lgNavItemsRef}
+            className="list-none font-[china] font-bold flex gap-y-4 gap-x-2 w-full justify-evenly"
+          >
+            <li>
+              <Link href={"#"}>About</Link> us
+            </li>
+            <li>
+              <Link href={"#"}>Services</Link>
+            </li>
+            <li>
+              <Link href={"#"}>Use Cases</Link>
+            </li>
+            <li>
+              <Link href={"#"}>Pricing</Link>
+            </li>
+            <li>
+              <Link href={"#"}>Blog</Link>
+            </li>
+          </ul>
+
+          <button
+            ref={lgRequestBtnRef}
+            className=" bg-black rounded-xl text-white whitespace-nowrap font-[china] font-semibold text-xs px-5 py-3"
+          >
+            Request a quote
+          </button>
+        </div>
+
         <i
           ref={sidebarLinesRef}
           onClick={openSideBar}
-          className="ri-menu-3-fill text-2xl font-bold md:hidden"
+          className="ri-menu-3-fill text-2xl font-bold lg:hidden"
         ></i>
       </nav>
 
@@ -158,7 +187,7 @@ const Navbar = () => {
       <div
         onClick={closeSideBar}
         className={clsx(
-          "fixed inset-0 transition-opacity duration-300 z-[9998] md:hidden",
+          "fixed inset-0 transition-opacity duration-300 z-[9998] lg:hidden",
           {
             "bg-black/50 visible opacity-100": isVisible,
             "bg-transparent invisible opacity-0": !isVisible,
@@ -169,7 +198,7 @@ const Navbar = () => {
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className="text-black fixed -right-full top-0 sm:w-[50%] w-full max-h-screen h-[100dvh] outline-1 bg-gray-200 px-10 py-20 z-[9999] overflow-hidden md:hidden"
+        className="text-black fixed -right-full top-0 sm:w-[50%] w-full max-h-screen h-[100dvh] outline-1 bg-gray-200 px-10 py-20 z-[9999] overflow-hidden lg:hidden"
       >
         <ul
           ref={navItemsRef}

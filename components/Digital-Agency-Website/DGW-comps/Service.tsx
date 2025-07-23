@@ -1,5 +1,6 @@
 import React from "react";
 import { Service } from "../types"; // adjust path as needed
+import Image from "next/image";
 
 const ServiceComp: React.FC<Service> = ({
   title,
@@ -13,7 +14,7 @@ const ServiceComp: React.FC<Service> = ({
 }) => {
   return (
     <div
-      className="border border-gray-300 rounded-2xl shadow-[0_8px_#333] w-full mb-10"
+      className="border border-gray-300 rounded-2xl shadow-[0_8px_#333] w-full mb-10 "
       style={{ backgroundColor: cardBackground }}
     >
       {/* Title */}
@@ -34,7 +35,9 @@ const ServiceComp: React.FC<Service> = ({
       <div className="flex justify-end w-full px-5 my-1">
         {/* Service Image */}
         <div className="mr-6">
-          <img
+          <Image
+            height={500}
+            width={500}
             className="w-[150px] h-[150px] object-contain"
             src={image}
             alt="service-icon"

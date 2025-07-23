@@ -1,80 +1,85 @@
 import {
   CaseStudies,
   Proposal,
-  Service,
+  Services,
   Team,
   Testimonies,
   WorkingProcess,
 } from "./types";
 
-export const services: Service[] = [
-  {
-    title: "Search Engine Optimization",
-    description: "Learn More",
-    descriptionColor: "#000",
-    image:
-      "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa7ea148298d9725f96f94_SEO_Image.svg",
-    iconBackground: "#b9ff66",
-    cardBackground: "#F3F3F3",
-    headingBackground: "#b9ff66",
-    iconColor: "#000",
-  },
-  {
-    title: "Pay Per Click Advertising",
-    description: "Learn More",
-    descriptionColor: "#000",
-    image:
-      "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9497ddb01c1c4066be55_PPC_Image.svg",
-    iconBackground: "#000",
-    cardBackground: "#b9ff66",
-    headingBackground: "#fff",
-    iconColor: "#b9ff66",
-  },
-  {
-    title: "Social Media Marketing",
-    description: "Learn More",
-    descriptionColor: "#fff",
-    image:
-      "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa97e9f7c085764d086011_SocialMedia_Image.svg",
-    iconBackground: "#b9ff66",
-    cardBackground: "#555555",
-    headingBackground: "#b9ff66",
-    iconColor: "#000",
-  },
-  {
-    title: "Email Marketing",
-    description: "Learn More",
-    descriptionColor: "#000",
-    image:
-      "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9c06136c230e98d7bb63_EmailMarketing_Image.svg",
-    iconBackground: "#b9ff66",
-    cardBackground: "#f3f3f3",
-    headingBackground: "#b9ff66",
-    iconColor: "#000",
-  },
-  {
-    title: "Content Creation",
-    description: "Learn More",
-    descriptionColor: "#000",
-    image:
-      "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9e045f63c6513a70eb19_ContentCreation_Image.svg",
-    iconBackground: "#000",
-    cardBackground: "#b9ff66",
-    headingBackground: "#FFFFFF",
-    iconColor: "#b9ff66",
-  },
-  {
-    title: "Analytics & Tracking",
-    description: "Learn More",
-    descriptionColor: "#fff",
-    image:
-      "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aaa15977ff9e94caa248f2_Analytics_Image.svg",
-    iconBackground: "#b9ff66",
-    cardBackground: "#555555",
-    headingBackground: "#FFFFFF",
-    iconColor: "#000",
-  },
-];
+export const services: Services = {
+  heading: "Services",
+  paragraph:
+    " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque molestiae voluptas dolore! voluptas dolore!",
+  services: [
+    {
+      title: "Search Engine Optimization",
+      description: "Learn More",
+      descriptionColor: "#000",
+      image:
+        "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa7ea148298d9725f96f94_SEO_Image.svg",
+      iconBackground: "#b9ff66",
+      cardBackground: "#F3F3F3",
+      headingBackground: "#b9ff66",
+      iconColor: "#000",
+    },
+    {
+      title: "Pay Per Click Advertising",
+      description: "Learn More",
+      descriptionColor: "#000",
+      image:
+        "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9497ddb01c1c4066be55_PPC_Image.svg",
+      iconBackground: "#000",
+      cardBackground: "#b9ff66",
+      headingBackground: "#fff",
+      iconColor: "#b9ff66",
+    },
+    {
+      title: "Social Media Marketing",
+      description: "Learn More",
+      descriptionColor: "#fff",
+      image:
+        "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa97e9f7c085764d086011_SocialMedia_Image.svg",
+      iconBackground: "#b9ff66",
+      cardBackground: "#555555",
+      headingBackground: "#b9ff66",
+      iconColor: "#000",
+    },
+    {
+      title: "Email Marketing",
+      description: "Learn More",
+      descriptionColor: "#000",
+      image:
+        "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9c06136c230e98d7bb63_EmailMarketing_Image.svg",
+      iconBackground: "#b9ff66",
+      cardBackground: "#f3f3f3",
+      headingBackground: "#b9ff66",
+      iconColor: "#000",
+    },
+    {
+      title: "Content Creation",
+      description: "Learn More",
+      descriptionColor: "#000",
+      image:
+        "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aa9e045f63c6513a70eb19_ContentCreation_Image.svg",
+      iconBackground: "#000",
+      cardBackground: "#b9ff66",
+      headingBackground: "#FFFFFF",
+      iconColor: "#b9ff66",
+    },
+    {
+      title: "Analytics & Tracking",
+      description: "Learn More",
+      descriptionColor: "#fff",
+      image:
+        "https://cdn.prod.website-files.com/668f86cc3182e34c72358df9/66aaa15977ff9e94caa248f2_Analytics_Image.svg",
+      iconBackground: "#b9ff66",
+      cardBackground: "#555555",
+      headingBackground: "#FFFFFF",
+      iconColor: "#000",
+    },
+  ],
+};
 
 export const proposal: Proposal = {
   heading: "Let's make things happen",
@@ -158,18 +163,18 @@ export const teamSection: Team = {
     "Meet the skilled and experienced team behind our successful digital marketing strategies",
   members: [
     {
-      image:
-        "https://generationiron.com/wp-content/uploads/2024/10/Jason-Statham-workout-routine.jpg",
-      name: "Goutam Khowal",
-      designation: "CEO ka boss",
-      experience: "10000+ years of leadership and strategic experience.",
+      image: "https://tr.web.img2.acsta.net/pictures/17/06/14/13/48/489688.jpg",
+      name: "I can't see him",
+      designation: "17x🏆",
+      experience: "Never Give Up",
     },
     {
-      image: "https://m.media-amazon.com/images/I/51633hpyAiL.jpg",
+      image:
+        "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=600",
       name: "Uttpal Bhardwaj",
-      designation: "CEO ka boss",
+      designation: "Venture Capitalist",
       experience:
-        "9999.99+ years of executive-level decision-making experience.",
+        "Over 15 years of experience investing in early-stage startups and scaling innovative technology companies across diverse sectors.",
     },
     {
       image:

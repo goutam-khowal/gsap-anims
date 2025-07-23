@@ -2,7 +2,7 @@
 
 import { gsap } from "gsap";
 import "remixicon/fonts/remixicon.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 function TextAnims() {
   const textToAnimateRef = useRef<HTMLHeadingElement>(null);
@@ -16,7 +16,7 @@ function TextAnims() {
     const h1 = textToAnimateRef.current;
     function breakText() {
       const name = h1.textContent;
-      let splittedText = name.split("");
+      const splittedText = name.split("");
 
       let clutter = "";
       splittedText.forEach((elem, key) => {

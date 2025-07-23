@@ -1,14 +1,93 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AccordionStatus, WorkingProcess } from "../types";
 import clsx from "clsx";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimHeadingPara from "./AnimtedComponents/AnimHeadingPara";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WorkingProcessComp: React.FC<WorkingProcess> = ({
   heading,
   paragraph,
   processList,
 }) => {
+  const mainSectionRef = useRef(null);
+  const firstSubSectionH1 = useRef(null);
+  const firstSubSectionP = useRef(null);
+  const secondSubSectionRef = useRef(null);
+
+  useGSAP(
+    () => {
+      if (
+        !mainSectionRef.current ||
+        !firstSubSectionH1.current ||
+        !firstSubSectionP.current
+      )
+        return;
+
+      const tlFirstSubSection = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainSectionRef.current,
+          scroller: "body",
+          start: "top 60%",
+          end: "top 40%",
+          // markers: true,
+          toggleActions: "play none none none",
+          scrub: 2,
+        },
+      });
+
+      tlFirstSubSection.from(firstSubSectionH1.current, {
+        opacity: 0,
+        duration: 0.5,
+        x: -50,
+        ease: "power2.out",
+      });
+      tlFirstSubSection.from(
+        firstSubSectionP.current,
+        {
+          x: 50,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "-=0.4"
+      );
+    }
+    // { scope: mainSectionRef }
+  );
+
+  useGSAP(() => {
+    if (!mainSectionRef.current || !secondSubSectionRef.current) return;
+
+    const children = Array.from(secondSubSectionRef.current.children);
+
+    const tlSecondSubSection = gsap.timeline({
+      scrollTrigger: {
+        trigger: secondSubSectionRef.current,
+        scroller: "body",
+        start: "top center",
+        end: "bottom 80%",
+        markers: true,
+        toggleActions: "play none none none",
+        scrub: 2,
+      },
+    });
+
+    tlSecondSubSection.from(children, {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power2.out",
+    });
+  });
+
+  // Accordion state management (unchanged)
   function stateSeeder() {
     return processList.map((item, index) => ({
       id: index,
@@ -28,17 +107,19 @@ const WorkingProcessComp: React.FC<WorkingProcess> = ({
 
   const [isAccordionOpen, setIsAccordionOpen] =
     useState<AccordionStatus[]>(stateSeeder);
+
+  // JSX unchanged
   return (
-    <section>
-      <div className="w-full flex max-sm:flex-col items-center mt-14 px-5 gap-x-5">
-        <h1 className="text-black w-full text-center px-2 py-2 text-3xl font-bold rounded-md bg-[#9AE975]">
-          {heading}
-        </h1>
-        <p className="text-center m-0 p-0 w-full text-base font-semibold py-8">
-          {paragraph}
-        </p>
-      </div>
-      <div className="flex flex-col items-center w-full px-5 gap-y-10">
+    <section
+      id="service-main-section"
+      ref={mainSectionRef}
+      className="mb-24 pt-5 max-sm:px-5 px-10"
+    >
+      <AnimHeadingPara heading={heading} paragraph={paragraph} />
+      <div
+        ref={secondSubSectionRef}
+        className="flex flex-col items-center w-full gap-y-10 pb-10"
+      >
         {processList.map((wp, index) => {
           const isOpen = isAccordionOpen?.[index]?.isOpen;
           return (
@@ -49,10 +130,11 @@ const WorkingProcessComp: React.FC<WorkingProcess> = ({
                 "text-black w-full min-h-20 h-fit py-10 px-5 rounded-2xl border-2 transition-colors duration-300 shadow-[0px_10px]"
               )}
             >
+              {/* Accordion content unchanged */}
               <div className="flex items-center justify-between">
                 <div className="flex gap-x-4.5 items-center ">
-                  <h1 className="">{"0" + String(wp.id) + " "}</h1>
-                  <h1 className="">{wp.title}</h1>
+                  <h1>{"0" + String(wp.id) + " "}</h1>
+                  <h1>{wp.title}</h1>
                 </div>
                 <i
                   onClick={() => handleAccordionToggle(index)}
@@ -60,30 +142,23 @@ const WorkingProcessComp: React.FC<WorkingProcess> = ({
                     "ri-arrow-down-s-fill duration-300 transition-transform rounded-full px-2 py-1 outline-1 ",
                     isOpen ? "rotate-180 bg-white" : "rotate-0 bg-[#b9ff69]"
                   )}
-                ></i>
+                />
               </div>
-              {/* Fading Border */}
               <div className="relative w-[90%] mx-auto">
-                {/* Actual bordered element */}
                 <div
                   className={clsx(
                     "border-b border-[#888888] w-full mt-8",
                     !isOpen && "hidden"
                   )}
                 />
-
-                {/* Left fade */}
                 <div className="absolute left-0 top-0 h-px w-6 bg-gradient-to-r from-[#b9ff69] to-transparent pointer-events-none" />
-
-                {/* Right fade */}
                 <div className="absolute right-0 top-0 h-px w-6 bg-gradient-to-l from-[#b9ff69] to-transparent pointer-events-none" />
               </div>
-              {/* Accordion content */}
               <div
                 className={clsx(
                   "overflow-hidden transition-all duration-300 ease-in-out px-5",
                   isOpen
-                    ? "max-h-96 opacity-100 mt-4  py-4"
+                    ? "max-h-96 opacity-100 mt-4 py-4"
                     : "max-h-0 opacity-0"
                 )}
               >
