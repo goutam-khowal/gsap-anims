@@ -7,6 +7,7 @@ import React, { useLayoutEffect, useRef } from "react";
 
 const Hero = () => {
   const heroImageRef = useRef<HTMLImageElement>(null);
+  const heroImageLargeScreenRef = useRef<HTMLImageElement>(null);
   const heroHeadingRef = useRef<HTMLHeadingElement>(null);
   const heroParaRef = useRef<HTMLParagraphElement>(null);
   const heroBtnRef = useRef<HTMLButtonElement>(null);
@@ -34,6 +35,18 @@ const Hero = () => {
     tl.from(
       heroImageRef.current,
       {
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      "-=0.4"
+    );
+    if (!heroImageLargeScreenRef.current) return;
+    tl.from(
+      heroImageLargeScreenRef.current,
+      {
+        y: 200,
+        x: 200,
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
@@ -102,7 +115,7 @@ const Hero = () => {
           <Image
             height={500}
             width={500}
-            ref={heroImageRef}
+            ref={heroImageLargeScreenRef}
             src="https://neodrafts.com/_astro/hero12.Wth7asPL_ZjRIO9.svg"
             alt="Bhopu"
           />
