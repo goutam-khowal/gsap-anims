@@ -35,6 +35,7 @@ const CaseStudiesComp: React.FC<CaseStudies> = ({
     if (!secondSubSectionRef.current) return;
 
     // Get all direct children as an array
+    if (!secondSubSectionRef.current) return;
     const secondSection = Array.from(secondSubSectionRef.current.children);
 
     // Animate all children with a stagger for "waterfall" effect
