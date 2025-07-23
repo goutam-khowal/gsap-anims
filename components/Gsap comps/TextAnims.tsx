@@ -16,6 +16,7 @@ function TextAnims() {
     const h1 = textToAnimateRef.current;
     function breakText() {
       const name = h1.textContent;
+      if (!name) return;
       const splittedText = name.split("");
 
       let clutter = "";
