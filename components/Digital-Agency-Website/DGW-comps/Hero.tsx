@@ -87,7 +87,10 @@ const Hero = () => {
       {/* Hero */}
       <div className="w-full font-[china] flex flex-col gap-y-2 items-center sm:grid sm:grid-cols-2 sm:gap-5 ">
         <div className="flex flex-col justify-evenly h-full max-sm:gap-y-4">
-          <h1 ref={heroHeadingRef} className="font-extrabold text-4xl">
+          <h1
+            ref={heroHeadingRef}
+            className="font-extrabold text-4xl sm:text-3xl"
+          >
             Navigating the digital landscape for success
           </h1>
           <div className="w-full  min-sm:hidden">
@@ -99,14 +102,17 @@ const Hero = () => {
               alt="Bhopu"
             />
           </div>
-          <p ref={heroParaRef} className="font-semibold text-left max-sm:my-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus eos quis suscipit porro asperiores totam ducimus.
-            Necessitatibus, beatae?
+          <p
+            ref={heroParaRef}
+            className="text-left my-2 sm:my-6 text-gray-950 leading-5.5"
+          >
+            Our digital marketing agency helps businesses grow and succeed
+            online through a range of services including SEO, PPC, social media
+            marketing, and content creation.
           </p>
           <button
             ref={heroBtnRef}
-            className="bg-black rounded-xl text-white w-full py-4 whitespace-nowrap text-lg font-[china] font-semibold my-1"
+            className="bg-black rounded-xl text-white w-full sm:text-[16px] sm:font-[100] sm:py-2.5 sm:w-[50%] py-4 whitespace-nowrap text-lg font-[china] font-semibold my-1"
           >
             Book a consultation
           </button>

@@ -15,6 +15,7 @@ import TeamSectionComp from "./DGW-comps/TeamSection";
 import Testimonials from "./DGW-comps/Testimonials";
 import ContactComp from "./DGW-comps/ContactComp";
 import Hero from "./DGW-comps/Hero";
+import Footer from "./DGW-comps/Footer";
 
 function AgencyWebsite() {
   return (
@@ -58,7 +59,7 @@ function AgencyWebsite() {
         {/* Contact */}
         <ContactComp />
         {/* Footer */}
-        {/* <Footer /> */}
+        <Footer />
       </section>
     </div>
   );
