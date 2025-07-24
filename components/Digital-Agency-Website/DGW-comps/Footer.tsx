@@ -29,9 +29,9 @@ const Footer = () => {
             </address>
           </div>
           <div className="flex justify-between items-center px-6">
-            <i className="ri-facebook-circle-fill text-3xl"></i>
-            <i className="ri-twitter-x-fill text-3xl"></i>
-            <i className="ri-linkedin-fill text-3xl"></i>
+            <i className="ri-facebook-circle-fill text-3xl  cursor-pointer"></i>
+            <i className="ri-twitter-x-fill text-3xl  cursor-pointer"></i>
+            <i className="ri-linkedin-fill text-3xl  cursor-pointer"></i>
           </div>
         </div>
         <div className="px-3 py-3.5 rounded-md bg-[#191A23] space-y-2 my-8">
@@ -59,6 +59,7 @@ const Footer = () => {
             <p>
               DEVELOPMENT BY{" "}
               <Link
+                target="blank"
                 href={"https://www.linkedin.com/in/goutam-khowal/"}
                 className="underline"
               >

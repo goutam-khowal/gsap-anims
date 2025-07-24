@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/Gsap comps/CustomCursor";
+// import CustomCursor from "@/components/Gsap comps/CustomCursor";
 import localFont from "next/font/local";
 import Navbar from "@/components/Digital-Agency-Website/DGW-comps/Navbar";
 
@@ -52,7 +52,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <CustomCursor />
+        {/* <CustomCursor /> */}
       </body>
     </html>
   );
